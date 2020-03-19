@@ -1,0 +1,10 @@
+C:\Users\marksussex\Documents\C# Projects\EFCoreFromExistingDB\EFCoreFromExistingDB\bin\Debug\netcoreapp3.0\EFCoreFromExistingDB.deps.json
+C:\Users\marksussex\Documents\C# Projects\EFCoreFromExistingDB\EFCoreFromExistingDB\bin\Debug\netcoreapp3.0\EFCoreFromExistingDB.dll
+C:\Users\marksussex\Documents\C# Projects\EFCoreFromExistingDB\EFCoreFromExistingDB\obj\Debug\netcoreapp3.0\EFCoreFromExistingDB.csprojAssemblyReference.cache
+C:\Users\marksussex\Documents\C# Projects\EFCoreFromExistingDB\EFCoreFromExistingDB\obj\Debug\netcoreapp3.0\EFCoreFromExistingDB.AssemblyInfoInputs.cache
+C:\Users\marksussex\Documents\C# Projects\EFCoreFromExistingDB\EFCoreFromExistingDB\obj\Debug\netcoreapp3.0\EFCoreFromExistingDB.AssemblyInfo.cs
+C:\Users\marksussex\Documents\C# Projects\EFCoreFromExistingDB\EFCoreFromExistingDB\bin\Debug\netcoreapp3.0\EFCoreFromExistingDB.runtimeconfig.json
+C:\Users\marksussex\Documents\C# Projects\EFCoreFromExistingDB\EFCoreFromExistingDB\bin\Debug\netcoreapp3.0\EFCoreFromExistingDB.runtimeconfig.dev.json
+C:\Users\marksussex\Documents\C# Projects\EFCoreFromExistingDB\EFCoreFromExistingDB\bin\Debug\netcoreapp3.0\EFCoreFromExistingDB.pdb
+C:\Users\marksussex\Documents\C# Projects\EFCoreFromExistingDB\EFCoreFromExistingDB\obj\Debug\netcoreapp3.0\EFCoreFromExistingDB.dll
+C:\Users\marksussex\Documents\C# Projects\EFCoreFromExistingDB\EFCoreFromExistingDB\obj\Debug\netcoreapp3.0\EFCoreFromExistingDB.pdb
