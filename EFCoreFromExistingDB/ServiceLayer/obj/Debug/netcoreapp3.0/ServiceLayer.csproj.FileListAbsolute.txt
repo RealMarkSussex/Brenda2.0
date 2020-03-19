@@ -6,3 +6,6 @@ C:\Users\marksussex\Documents\C# Projects\Brenda2.0\EFCoreFromExistingDB\Service
 C:\Users\marksussex\Documents\C# Projects\Brenda2.0\EFCoreFromExistingDB\ServiceLayer\obj\Debug\netcoreapp3.0\ServiceLayer.AssemblyInfo.cs
 C:\Users\marksussex\Documents\C# Projects\Brenda2.0\EFCoreFromExistingDB\ServiceLayer\obj\Debug\netcoreapp3.0\ServiceLayer.dll
 C:\Users\marksussex\Documents\C# Projects\Brenda2.0\EFCoreFromExistingDB\ServiceLayer\obj\Debug\netcoreapp3.0\ServiceLayer.pdb
+C:\Users\marksussex\Documents\C# Projects\Brenda2.0\EFCoreFromExistingDB\ServiceLayer\bin\Debug\netcoreapp3.0\EFCoreFromExistingDB.dll
+C:\Users\marksussex\Documents\C# Projects\Brenda2.0\EFCoreFromExistingDB\ServiceLayer\bin\Debug\netcoreapp3.0\EFCoreFromExistingDB.pdb
+C:\Users\marksussex\Documents\C# Projects\Brenda2.0\EFCoreFromExistingDB\ServiceLayer\obj\Debug\netcoreapp3.0\ServiceLayer.csproj.CopyComplete
