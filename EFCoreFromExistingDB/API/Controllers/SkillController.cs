@@ -18,6 +18,7 @@ namespace API.Controllers
         [HttpGet]
         public IActionResult Get()
         {
+            Response.Headers.Add("Access-Control-Allow-Origin", "*");
             return new OkObjectResult(_service.GetServiceSkills());
         }
     }
