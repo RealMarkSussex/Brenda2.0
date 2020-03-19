@@ -9,7 +9,7 @@ namespace EFCoreFromExistingDB.Repositories
     {
         public static IEnumerable<Skill> Get()
         {
-            using var context = new Brenda20Context();
+            var context = new Brenda20Context();
             return context.Skill;
         }
 

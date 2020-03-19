@@ -1,17 +1,24 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using EFCoreFromExistingDB;
 using Microsoft.AspNetCore.Mvc;
+using ServiceLayer;
+using ServiceLayer.Interfaces;
 
 namespace API.Controllers
 {
     [ApiController]
+    [Route("api/[controller]")]
     public class SkillController : Controller
     {
-        public IActionResult Index()
+        private readonly IService _service;
+
+        public SkillController()
         {
-            return null;
+            _service = new Service(new DataAccess());
+        }
+        [HttpGet]
+        public IActionResult Get()
+        {
+            return new OkObjectResult(_service.GetServiceSkills());
         }
     }
 }

@@ -31,6 +31,9 @@
         "frameworks": {
           "netcoreapp3.0": {
             "projectReferences": {
+              "C:\\Users\\marksussex\\Documents\\C# Projects\\Brenda2.0\\EFCoreFromExistingDB\\EFCoreFromExistingDB\\EFCoreFromExistingDB.csproj": {
+                "projectPath": "C:\\Users\\marksussex\\Documents\\C# Projects\\Brenda2.0\\EFCoreFromExistingDB\\EFCoreFromExistingDB\\EFCoreFromExistingDB.csproj"
+              },
               "C:\\Users\\marksussex\\Documents\\C# Projects\\Brenda2.0\\EFCoreFromExistingDB\\ServiceLayer\\ServiceLayer.csproj": {
                 "projectPath": "C:\\Users\\marksussex\\Documents\\C# Projects\\Brenda2.0\\EFCoreFromExistingDB\\ServiceLayer\\ServiceLayer.csproj"
               }
