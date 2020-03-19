@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\marksussex\\Documents\\C# Projects\\Brenda2.0\\EFCoreFromExistingDB\\EFCoreFromExistingDB\\EFCoreFromExistingDB.csproj": {}
+    "C:\\Users\\marksussex\\Documents\\C# Projects\\Brenda2.0\\EFCoreFromExistingDB\\ServiceLayer\\ServiceLayer.csproj": {}
   },
   "projects": {
-    "C:\\Users\\marksussex\\Documents\\C# Projects\\Brenda2.0\\EFCoreFromExistingDB\\EFCoreFromExistingDB\\EFCoreFromExistingDB.csproj": {
+    "C:\\Users\\marksussex\\Documents\\C# Projects\\Brenda2.0\\EFCoreFromExistingDB\\ServiceLayer\\ServiceLayer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\marksussex\\Documents\\C# Projects\\Brenda2.0\\EFCoreFromExistingDB\\EFCoreFromExistingDB\\EFCoreFromExistingDB.csproj",
-        "projectName": "EFCoreFromExistingDB",
-        "projectPath": "C:\\Users\\marksussex\\Documents\\C# Projects\\Brenda2.0\\EFCoreFromExistingDB\\EFCoreFromExistingDB\\EFCoreFromExistingDB.csproj",
+        "projectUniqueName": "C:\\Users\\marksussex\\Documents\\C# Projects\\Brenda2.0\\EFCoreFromExistingDB\\ServiceLayer\\ServiceLayer.csproj",
+        "projectName": "ServiceLayer",
+        "projectPath": "C:\\Users\\marksussex\\Documents\\C# Projects\\Brenda2.0\\EFCoreFromExistingDB\\ServiceLayer\\ServiceLayer.csproj",
         "packagesPath": "C:\\Users\\marksussex\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\marksussex\\Documents\\C# Projects\\Brenda2.0\\EFCoreFromExistingDB\\EFCoreFromExistingDB\\obj\\",
+        "outputPath": "C:\\Users\\marksussex\\Documents\\C# Projects\\Brenda2.0\\EFCoreFromExistingDB\\ServiceLayer\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\"
@@ -41,18 +41,6 @@
       },
       "frameworks": {
         "netcoreapp3.0": {
-          "dependencies": {
-            "Microsoft.EntityFrameworkCore.SqlServer": {
-              "target": "Package",
-              "version": "[3.1.2, )"
-            },
-            "Microsoft.EntityFrameworkCore.Tools": {
-              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
-              "suppressParent": "All",
-              "target": "Package",
-              "version": "[3.1.2, )"
-            }
-          },
           "imports": [
             "net461",
             "net462",

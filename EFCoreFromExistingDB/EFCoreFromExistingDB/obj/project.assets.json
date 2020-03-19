@@ -5034,11 +5034,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\marksussex\\Documents\\C# Projects\\EFCoreFromExistingDB\\EFCoreFromExistingDB\\EFCoreFromExistingDB.csproj",
+      "projectUniqueName": "C:\\Users\\marksussex\\Documents\\C# Projects\\Brenda2.0\\EFCoreFromExistingDB\\EFCoreFromExistingDB\\EFCoreFromExistingDB.csproj",
       "projectName": "EFCoreFromExistingDB",
-      "projectPath": "C:\\Users\\marksussex\\Documents\\C# Projects\\EFCoreFromExistingDB\\EFCoreFromExistingDB\\EFCoreFromExistingDB.csproj",
+      "projectPath": "C:\\Users\\marksussex\\Documents\\C# Projects\\Brenda2.0\\EFCoreFromExistingDB\\EFCoreFromExistingDB\\EFCoreFromExistingDB.csproj",
       "packagesPath": "C:\\Users\\marksussex\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\marksussex\\Documents\\C# Projects\\EFCoreFromExistingDB\\EFCoreFromExistingDB\\obj\\",
+      "outputPath": "C:\\Users\\marksussex\\Documents\\C# Projects\\Brenda2.0\\EFCoreFromExistingDB\\EFCoreFromExistingDB\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\"
