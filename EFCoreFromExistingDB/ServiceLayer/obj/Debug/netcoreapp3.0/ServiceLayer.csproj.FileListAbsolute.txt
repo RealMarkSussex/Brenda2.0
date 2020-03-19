@@ -1,0 +1,8 @@
+C:\Users\marksussex\Documents\C# Projects\Brenda2.0\EFCoreFromExistingDB\ServiceLayer\bin\Debug\netcoreapp3.0\ServiceLayer.deps.json
+C:\Users\marksussex\Documents\C# Projects\Brenda2.0\EFCoreFromExistingDB\ServiceLayer\bin\Debug\netcoreapp3.0\ServiceLayer.dll
+C:\Users\marksussex\Documents\C# Projects\Brenda2.0\EFCoreFromExistingDB\ServiceLayer\bin\Debug\netcoreapp3.0\ServiceLayer.pdb
+C:\Users\marksussex\Documents\C# Projects\Brenda2.0\EFCoreFromExistingDB\ServiceLayer\obj\Debug\netcoreapp3.0\ServiceLayer.csprojAssemblyReference.cache
+C:\Users\marksussex\Documents\C# Projects\Brenda2.0\EFCoreFromExistingDB\ServiceLayer\obj\Debug\netcoreapp3.0\ServiceLayer.AssemblyInfoInputs.cache
+C:\Users\marksussex\Documents\C# Projects\Brenda2.0\EFCoreFromExistingDB\ServiceLayer\obj\Debug\netcoreapp3.0\ServiceLayer.AssemblyInfo.cs
+C:\Users\marksussex\Documents\C# Projects\Brenda2.0\EFCoreFromExistingDB\ServiceLayer\obj\Debug\netcoreapp3.0\ServiceLayer.dll
+C:\Users\marksussex\Documents\C# Projects\Brenda2.0\EFCoreFromExistingDB\ServiceLayer\obj\Debug\netcoreapp3.0\ServiceLayer.pdb
