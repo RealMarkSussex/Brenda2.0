@@ -15,7 +15,7 @@ namespace EFCoreFromExistingDB
 
         public void Delete(Level level) => LevelRepo.Delete(level);
 
-        public void Update(Level level) => LevelRepo.Delete(level);
+        public void Update(Level level) => LevelRepo.Update(level);
 
 
         public IEnumerable<Role> GetRoles() => RoleRepo.Get();
