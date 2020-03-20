@@ -6,5 +6,7 @@ namespace ServiceLayer.Interfaces
     public interface IService
     {
         IEnumerable<ServiceSkill> GetServiceSkills();
+        IEnumerable<ServiceUser> GetUsers();
+
     }
 }

@@ -1,4 +1,5 @@
-﻿using AutoMapper;
+﻿using System.Collections;
+using AutoMapper;
 using EFCoreFromExistingDB.Interfaces;
 using EFCoreFromExistingDB.Models;
 using ServiceLayer.Interfaces;
@@ -16,7 +17,10 @@ namespace ServiceLayer
             _mapper = mapper;
             _database = database;
         }
-        public IEnumerable<ServiceSkill> GetServiceSkills() => _mapper.Map<IEnumerable<Skill>, IEnumerable<ServiceSkill>>(_database.GetSkills());
-        
+        public IEnumerable<ServiceSkill> GetServiceSkills() => 
+            _mapper.Map<IEnumerable<Skill>, IEnumerable<ServiceSkill>>(_database.GetSkills());
+
+        public IEnumerable<ServiceUser> GetUsers() =>
+            _mapper.Map<IEnumerable<User>, IEnumerable<ServiceUser>>(_database.GetUsers());
     }
 }

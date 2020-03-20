@@ -105,7 +105,6 @@ C:\Users\marksussex\Documents\C# Projects\Brenda2.0\EFCoreFromExistingDB\API\bin
 C:\Users\marksussex\Documents\C# Projects\Brenda2.0\EFCoreFromExistingDB\API\bin\Debug\netcoreapp3.0\API.runtimeconfig.dev.json
 C:\Users\marksussex\Documents\C# Projects\Brenda2.0\EFCoreFromExistingDB\API\bin\Debug\netcoreapp3.0\API.dll
 C:\Users\marksussex\Documents\C# Projects\Brenda2.0\EFCoreFromExistingDB\API\bin\Debug\netcoreapp3.0\API.pdb
-C:\Users\marksussex\Documents\C# Projects\Brenda2.0\EFCoreFromExistingDB\API\obj\Debug\netcoreapp3.0\API.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\marksussex\Documents\C# Projects\Brenda2.0\EFCoreFromExistingDB\API\obj\Debug\netcoreapp3.0\API.dll
 C:\Users\marksussex\Documents\C# Projects\Brenda2.0\EFCoreFromExistingDB\API\obj\Debug\netcoreapp3.0\API.pdb
 C:\Users\marksussex\Documents\C# Projects\Brenda2.0\EFCoreFromExistingDB\API\bin\Debug\netcoreapp3.0\AutoMapper.dll
