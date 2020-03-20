@@ -54,7 +54,7 @@ namespace EFCoreFromExistingDB
         public void Update(User user) => UserRepo.Update(user);
 
 
-        public IEnumerable<UserSkill> GeUserSkills() => UserSkillRepo.Get();
+        public IEnumerable<UserSkill> GetUserSkills() => UserSkillRepo.Get();
 
         public void Add(UserSkill userSkill) => UserSkillRepo.Add(userSkill);
 

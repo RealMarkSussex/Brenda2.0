@@ -5,6 +5,7 @@ using EFCoreFromExistingDB.Models;
 using ServiceLayer.Interfaces;
 using ServiceLayer.Models;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace ServiceLayer
 {
@@ -20,7 +21,17 @@ namespace ServiceLayer
         public IEnumerable<ServiceSkill> GetServiceSkills() => 
             _mapper.Map<IEnumerable<Skill>, IEnumerable<ServiceSkill>>(_database.GetSkills());
 
-        public IEnumerable<ServiceUser> GetUsers() =>
-            _mapper.Map<IEnumerable<User>, IEnumerable<ServiceUser>>(_database.GetUsers());
+        public IEnumerable<ServiceUser> GetUsers()
+        {
+            var serviceUsers = _mapper.Map<IEnumerable<User>, IEnumerable<ServiceUser>>(_database.GetUsers()).ToList();
+            var newServiceUsers = new List<ServiceUser>();
+            var userSkills = _database.GetUserSkills().ToList();
+            foreach (var user in serviceUsers)
+            {
+                user.UserSkill = userSkills.Where(us => us.UserId == user.UserId).ToList();
+                newServiceUsers.Add(user);
+            }
+            return newServiceUsers;
+        }
     }
 }

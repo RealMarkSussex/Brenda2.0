@@ -35,7 +35,7 @@ namespace EFCoreFromExistingDB.Interfaces
         void Update(User user);
 
 
-        IEnumerable<UserSkill> GeUserSkills();
+        IEnumerable<UserSkill> GetUserSkills();
         void Add(UserSkill userSkill);
         void Delete(UserSkill userSkill);
         void Update(UserSkill userSkill);
