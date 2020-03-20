@@ -26,14 +26,12 @@ namespace EFCoreFromExistingDB.Repositories
 
         public void Delete(User user)
         {
-            var context = new Brenda20Context();
-            context.User.Remove(user);
+            _context.User.Remove(user);
         }
 
         public void Update(User user)
         {
-            var context = new Brenda20Context();
-            context.User.Update(user);
+            _context.User.Update(user);
         }
     }
 }
