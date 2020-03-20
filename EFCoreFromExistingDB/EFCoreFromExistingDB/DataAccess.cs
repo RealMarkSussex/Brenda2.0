@@ -55,7 +55,7 @@ namespace EFCoreFromExistingDB
 
         public void Add(User user) => _userRepo.Add(user);
 
-        public void Delete(User user) => _userRepo.Delete(user);
+        public void DeleteUser(int id) => _userRepo.Delete(id);
 
         public void Update(User user) => _userRepo.Update(user);
 

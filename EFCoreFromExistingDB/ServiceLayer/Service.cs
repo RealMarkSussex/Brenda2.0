@@ -53,9 +53,9 @@ namespace ServiceLayer
             _database.Add(_mapper.Map<ServiceUser, User>(user));
         }
 
-        public void Delete(ServiceUser user)
+        public void Delete(int id)
         {
-            _database.Delete(_mapper.Map<ServiceUser, User>(user));
+            _database.DeleteUser(id);
         }
     }
 }

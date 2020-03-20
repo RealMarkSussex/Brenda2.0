@@ -68,7 +68,7 @@ namespace API.Controllers
                 return NotFound();
             }
 
-            _service.Delete(user);
+            _service.Delete(id);
             return Ok();
         }
     }

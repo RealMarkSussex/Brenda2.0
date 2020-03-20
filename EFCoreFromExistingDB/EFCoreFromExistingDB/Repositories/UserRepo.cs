@@ -1,5 +1,7 @@
-﻿using EFCoreFromExistingDB.Models;
+﻿using System;
+using EFCoreFromExistingDB.Models;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace EFCoreFromExistingDB.Repositories
 {
@@ -21,8 +23,10 @@ namespace EFCoreFromExistingDB.Repositories
             _context.SaveChanges();
         }
 
-        public void Delete(User user)
+        public void Delete(int id)
         {
+            var user = Get().FirstOrDefault(u => u.UserId == id);
+            _context.User.Attach(user ?? throw new InvalidOperationException());
             _context.User.Remove(user);
             _context.SaveChanges();
         }

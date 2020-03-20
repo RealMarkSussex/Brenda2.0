@@ -31,7 +31,7 @@ namespace EFCoreFromExistingDB.Interfaces
 
         IEnumerable<User> GetUsers();
         void Add(User user);
-        void Delete(User user);
+        void DeleteUser(int id);
         void Update(User user);
 
 
