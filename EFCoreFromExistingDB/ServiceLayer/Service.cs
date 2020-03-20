@@ -13,32 +13,16 @@ namespace ServiceLayer
     public class Service : IService
     {
         private readonly IDataAccess _database;
-        public Service(IDataAccess database)
+        private readonly IMapper _mapper;
+        public Service(IDataAccess database, IMapper mapper)
         {
+            _mapper = mapper;
             _database = database;
         }
         public IEnumerable<ServiceSkill> GetServiceSkills()
         {
-            //var config = new MapperConfiguration(cfg => { cfg.CreateMap<Skill, ServiceSkill>(); });
-            //var mapper = new Mapper(config);
-            //var skills = _database.GetSkills();
-            //var serviceSkill = new ServiceSkill();
-
-            //return skills.Select(skill => mapper.Map(skill, serviceSkill)).ToList();
-
             var skills = _database.GetSkills();
-            var serviceSkills = new List<ServiceSkill>();
-
-            foreach (var skill in skills)
-            {
-                serviceSkills.Add(new ServiceSkill()
-                {
-                    Name = skill.Name,
-                    Description = skill.Description
-                });
-            }
-
-            return serviceSkills;
+            return _mapper.Map<IEnumerable<Skill>, IEnumerable<ServiceSkill>>(skills);
         }
     }
 }
