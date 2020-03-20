@@ -1,0 +1,8 @@
+
+EFCoreFromExistingDB/ServiceLayer/Service.cs
+*.dll
+*.pdb
+*.cache
+*.ide
+*.ide-wal
+EFCoreFromExistingDB/.vs/EFCoreFromExistingDB/v16/.suo

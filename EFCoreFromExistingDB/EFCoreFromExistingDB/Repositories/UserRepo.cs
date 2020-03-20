@@ -10,10 +10,6 @@ namespace EFCoreFromExistingDB.Repositories
         {
             _context = new Brenda20Context();
         }
-        ~UserRepo()
-        {
-            _context.SaveChanges();
-        }
         public IEnumerable<User> Get()
         {
             return _context.User;
@@ -22,16 +18,19 @@ namespace EFCoreFromExistingDB.Repositories
         public void Add(User user)
         { 
             _context.User.Add(user);
+            _context.SaveChanges();
         }
 
         public void Delete(User user)
         {
             _context.User.Remove(user);
+            _context.SaveChanges();
         }
 
         public void Update(User user)
         {
             _context.User.Update(user);
+            _context.SaveChanges();
         }
     }
 }

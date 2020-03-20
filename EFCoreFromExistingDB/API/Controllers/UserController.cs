@@ -58,5 +58,18 @@ namespace API.Controllers
 
             return Ok();
         }
+
+        [HttpDelete("{id}")]
+        public IActionResult Delete(int id)
+        {
+            var user = _service.GetUsers().FirstOrDefault(u => u.UserId == id);
+            if (user == null)
+            {
+                return NotFound();
+            }
+
+            _service.Delete(user);
+            return Ok();
+        }
     }
 }
