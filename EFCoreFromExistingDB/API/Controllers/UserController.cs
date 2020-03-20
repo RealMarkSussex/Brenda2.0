@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using ServiceLayer;
 using ServiceLayer.Interfaces;
+using ServiceLayer.Models;
 
 namespace API.Controllers
 {
@@ -26,7 +27,36 @@ namespace API.Controllers
         public IActionResult Get()
         {
             Response.Headers.Add("Access-Control-Allow-Origin", "*");
-            return new OkObjectResult(_service.GetUsers());
+            var users = _service.GetUsers();
+            if (!users.Any())
+            {
+                return NotFound();
+            }
+            return new OkObjectResult(users);
+        }
+
+        [HttpGet("{id}")]
+        public IActionResult Get(int id)
+        {
+            var user = _service.GetUsers().FirstOrDefault(u => u.UserId == id);
+            if (user == null)
+            {
+                return NotFound();
+            }
+            return new OkObjectResult(user);
+        }
+
+        [HttpPost]
+        public IActionResult Post([FromBody] ServiceUser user)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest();
+            }
+
+            _service.Add(user);
+
+            return Ok();
         }
     }
 }

@@ -3,27 +3,34 @@ using System.Collections.Generic;
 
 namespace EFCoreFromExistingDB.Repositories
 {
-    internal static class UserRepo
+    internal class UserRepo
     {
-        public static IEnumerable<User> Get()
+        private readonly Brenda20Context _context;
+        public UserRepo()
         {
-            var context = new Brenda20Context();
-            return context.User;
+            _context = new Brenda20Context();
+        }
+        ~UserRepo()
+        {
+            _context.SaveChanges();
+        }
+        public IEnumerable<User> Get()
+        {
+            return _context.User;
         }
 
-        public static void Add(User user)
+        public void Add(User user)
         { 
-            var context = new Brenda20Context();
-            context.User.Add(user);
+            _context.User.Add(user);
         }
 
-        public static void Delete(User user)
+        public void Delete(User user)
         {
             var context = new Brenda20Context();
             context.User.Remove(user);
         }
 
-        public static void Update(User user)
+        public void Update(User user)
         {
             var context = new Brenda20Context();
             context.User.Update(user);

@@ -9,7 +9,7 @@ namespace API
         public MappingProfile()
         {
             CreateMap<Skill, ServiceSkill>();
-            CreateMap<User, ServiceUser>();
+            CreateMap<User, ServiceUser>().ReverseMap();
         }
     }
 }

@@ -9,6 +9,12 @@ namespace EFCoreFromExistingDB
 {
     public class DataAccess : IDataAccess
     {
+        // TODO: Refactor all repos like user repo
+        private readonly UserRepo _userRepo;
+        public DataAccess()
+        {
+            _userRepo = new UserRepo();
+        }
         public IEnumerable<Level> GetLevels() => LevelRepo.Get();
 
         public void Add(Level level) => LevelRepo.Add(level);
@@ -45,13 +51,13 @@ namespace EFCoreFromExistingDB
         public void Update(SkillLevel skillLevel) => SkillLevelRepo.Update(skillLevel);
 
 
-        public IEnumerable<User> GetUsers() => UserRepo.Get();
+        public IEnumerable<User> GetUsers() => _userRepo.Get();
 
-        public void Add(User user) => UserRepo.Add(user);
+        public void Add(User user) => _userRepo.Add(user);
 
-        public void Delete(User user) => UserRepo.Delete(user);
+        public void Delete(User user) => _userRepo.Delete(user);
 
-        public void Update(User user) => UserRepo.Update(user);
+        public void Update(User user) => _userRepo.Update(user);
 
 
         public IEnumerable<UserSkill> GetUserSkills() => UserSkillRepo.Get();
