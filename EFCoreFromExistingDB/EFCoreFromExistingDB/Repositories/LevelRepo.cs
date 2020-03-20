@@ -1,8 +1,5 @@
-﻿using System;
+﻿using EFCoreFromExistingDB.Models;
 using System.Collections.Generic;
-using System.Text;
-using EFCoreFromExistingDB.Models;
-using Microsoft.EntityFrameworkCore;
 
 namespace EFCoreFromExistingDB.Repositories
 {

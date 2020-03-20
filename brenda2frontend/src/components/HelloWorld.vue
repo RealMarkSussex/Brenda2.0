@@ -1,6 +1,6 @@
 <template>
   <div class="hello">
-    <h1>{{ skills }}</h1>
+    <b-table :items="skills"></b-table>
   </div>
 </template>
 

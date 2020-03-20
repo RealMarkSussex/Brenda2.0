@@ -1,18 +1,11 @@
-﻿using System.Collections.Generic;
+﻿using EFCoreFromExistingDB.Models;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 
-namespace EFCoreFromExistingDB.Models
+namespace ServiceLayer.Models
 {
-    public partial class User
+    public class ServiceUser
     {
-        public User()
-        {
-            UserSkill = new HashSet<UserSkill>();
-        }
-
-        [Key]
-        [Column("UserID")]
         public int UserId { get; set; }
         [Required]
         [StringLength(100)]
@@ -26,18 +19,10 @@ namespace EFCoreFromExistingDB.Models
         [Required]
         [StringLength(50)]
         public string Password { get; set; }
-        [Column("RoleID")]
         public int RoleId { get; set; }
-        [Column("DesiredRoleID")]
         public int DesiredRoleId { get; set; }
-
-        [ForeignKey(nameof(DesiredRoleId))]
-        [InverseProperty("UserDesiredRole")]
         public virtual Role DesiredRole { get; set; }
-        [ForeignKey(nameof(RoleId))]
-        [InverseProperty("UserRole")]
         public virtual Role Role { get; set; }
-        [InverseProperty("User")]
         public virtual ICollection<UserSkill> UserSkill { get; set; }
     }
 }

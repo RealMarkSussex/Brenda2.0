@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using AutoMapper;
-using EFCoreFromExistingDB;
+﻿using AutoMapper;
 using EFCoreFromExistingDB.Interfaces;
 using EFCoreFromExistingDB.Models;
 using ServiceLayer.Interfaces;
 using ServiceLayer.Models;
+using System.Collections.Generic;
 
 namespace ServiceLayer
 {
@@ -19,10 +16,7 @@ namespace ServiceLayer
             _mapper = mapper;
             _database = database;
         }
-        public IEnumerable<ServiceSkill> GetServiceSkills()
-        {
-            var skills = _database.GetSkills();
-            return _mapper.Map<IEnumerable<Skill>, IEnumerable<ServiceSkill>>(skills);
-        }
+        public IEnumerable<ServiceSkill> GetServiceSkills() => _mapper.Map<IEnumerable<Skill>, IEnumerable<ServiceSkill>>(_database.GetSkills());
+        
     }
 }
