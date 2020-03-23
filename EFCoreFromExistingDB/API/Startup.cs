@@ -1,3 +1,4 @@
+using System.Threading.Tasks;
 using AutoMapper;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -19,7 +20,6 @@ namespace API
 
             var mapper = mappingConfig.CreateMapper();
             services.AddSingleton(mapper);
-
             services.AddMvc(option => option.EnableEndpointRouting = false);
         }
 

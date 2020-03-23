@@ -9,10 +9,7 @@
 import axios from 'axios';
 
 export default {
-  name: 'HelloWorld',
-  props: {
-    msg: String
-  },
+  name: 'Skills',
   data() {
     return {
       skills: []

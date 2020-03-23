@@ -1,4 +1,5 @@
-﻿using AutoMapper;
+﻿using System.Linq;
+using AutoMapper;
 using EFCoreFromExistingDB;
 using Microsoft.AspNetCore.Mvc;
 using ServiceLayer;
@@ -15,12 +16,17 @@ namespace API.Controllers
         public SkillController(IMapper mapper)
         {
             _service = new Service(new DataAccess(), mapper);
+            Response.Headers.Add("Access-Control-Allow-Origin", "*");
         }
         [HttpGet]
         public IActionResult Get()
         {
-            Response.Headers.Add("Access-Control-Allow-Origin", "*");
-            return new OkObjectResult(_service.GetServiceSkills());
+            var skills = _service.GetServiceSkills().ToList();
+            if (!skills.Any())
+            {
+                return NotFound();
+            }
+            return new OkObjectResult(skills);
         }
     }
 }
