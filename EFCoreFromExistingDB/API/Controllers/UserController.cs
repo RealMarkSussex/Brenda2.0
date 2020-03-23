@@ -1,14 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using AutoMapper;
+﻿using AutoMapper;
 using EFCoreFromExistingDB;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using ServiceLayer;
 using ServiceLayer.Interfaces;
 using ServiceLayer.Models;
+using System.Linq;
 
 namespace API.Controllers
 {

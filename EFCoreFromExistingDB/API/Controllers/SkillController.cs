@@ -16,11 +16,11 @@ namespace API.Controllers
         public SkillController(IMapper mapper)
         {
             _service = new Service(new DataAccess(), mapper);
-            Response.Headers.Add("Access-Control-Allow-Origin", "*");
         }
         [HttpGet]
         public IActionResult Get()
         {
+            Response.Headers.Add("Access-Control-Allow-Origin", "*");
             var skills = _service.GetServiceSkills().ToList();
             if (!skills.Any())
             {
