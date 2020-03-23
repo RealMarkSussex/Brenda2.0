@@ -2,6 +2,7 @@
 using EFCoreFromExistingDB.Models;
 using System.Collections.Generic;
 using System.Linq;
+using Microsoft.EntityFrameworkCore;
 
 namespace EFCoreFromExistingDB.Repositories
 {
@@ -33,6 +34,7 @@ namespace EFCoreFromExistingDB.Repositories
 
         public void Update(User user)
         {
+            _context.Entry(_context.User.FirstOrDefault(u => u.UserId == user.UserId)).State = EntityState.Detached;
             _context.User.Update(user);
             _context.SaveChanges();
         }

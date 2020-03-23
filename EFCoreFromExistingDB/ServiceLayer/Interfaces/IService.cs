@@ -9,6 +9,7 @@ namespace ServiceLayer.Interfaces
         IEnumerable<ServiceUser> GetUsers();
         void Add(ServiceUser user);
         void Delete(int id);
+        void Update(ServiceUser user);
 
     }
 }

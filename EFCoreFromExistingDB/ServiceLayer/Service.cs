@@ -57,5 +57,10 @@ namespace ServiceLayer
         {
             _database.DeleteUser(id);
         }
+
+        public void Update(ServiceUser user)
+        {
+            _database.Update(_mapper.Map<ServiceUser, User>(user));
+        }
     }
 }

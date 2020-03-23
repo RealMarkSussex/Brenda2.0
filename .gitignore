@@ -1,8 +1,10 @@
-
-EFCoreFromExistingDB/ServiceLayer/Service.cs
-*.dll
+.vs
+.vscode
+bin
+obj
+*.user
 *.pdb
-*.cache
-*.ide
-*.ide-wal
+*.dll
+EFCoreFromExistingDB/.vs/EFCoreFromExistingDB/DesignTimeBuild/.dtbcache
+EFCoreFromExistingDB/.vs/EFCoreFromExistingDB/DesignTimeBuild/.dtbcache
 EFCoreFromExistingDB/.vs/EFCoreFromExistingDB/v16/.suo

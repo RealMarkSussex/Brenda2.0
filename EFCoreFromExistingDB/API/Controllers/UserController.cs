@@ -71,5 +71,18 @@ namespace API.Controllers
             _service.Delete(id);
             return Ok();
         }
+
+        [HttpPut]
+        public IActionResult Update([FromBody] ServiceUser user)
+        {
+            var potentialUser = _service.GetUsers().FirstOrDefault(u => u.UserId == user.UserId);
+            if (potentialUser == null)
+            {
+                return NotFound();
+            }
+
+            _service.Update(user);
+            return Ok();
+        }
     }
 }
