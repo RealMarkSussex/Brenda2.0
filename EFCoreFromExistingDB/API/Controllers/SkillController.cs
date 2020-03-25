@@ -4,6 +4,7 @@ using EFCoreFromExistingDB;
 using Microsoft.AspNetCore.Mvc;
 using ServiceLayer;
 using ServiceLayer.Interfaces;
+using ServiceLayer.Models;
 
 namespace API.Controllers
 {
@@ -39,6 +40,17 @@ namespace API.Controllers
             }
 
             _service.DeleteSkill(id);
+            return Ok();
+        }
+
+        [HttpPost]
+        public IActionResult Post([FromBody] ServiceSkill skill)
+        {
+            _service.Add(skill);
+            if (!ModelState.IsValid)
+            {
+                return BadRequest();
+            }
             return Ok();
         }
     }

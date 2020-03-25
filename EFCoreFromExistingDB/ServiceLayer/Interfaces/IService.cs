@@ -7,6 +7,7 @@ namespace ServiceLayer.Interfaces
     {
         IEnumerable<ServiceSkill> GetSkills();
         void DeleteSkill(int id);
+        void Add(ServiceSkill skill);
         IEnumerable<ServiceUser> GetUsers();
         void Add(ServiceUser user);
         void DeleteUser(int id);

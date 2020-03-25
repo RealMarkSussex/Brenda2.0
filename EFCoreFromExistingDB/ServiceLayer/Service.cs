@@ -30,6 +30,11 @@ namespace ServiceLayer
             _database.DeleteSkill(id);
         }
 
+        public void Add(ServiceSkill skill)
+        {
+            _database.Add(_mapper.Map<ServiceSkill, Skill>(skill));
+        }
+
         public IEnumerable<ServiceUser> GetUsers()
         {
             var serviceUsers = _mapper.Map<IEnumerable<User>, IEnumerable<ServiceUser>>(_database.GetUsers()).ToList();

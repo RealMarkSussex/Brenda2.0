@@ -56,7 +56,7 @@ namespace EFCoreFromExistingDB
 
         public void Add(SkillLevel skillLevel) => _skillLevelRepo.Add(skillLevel);
 
-        public void DeleteSkillLevel(int id) => _skillLevelRepo.Delete(id);
+        public void DeleteSkillLevel(int id) => new SkillLevelRepo().Delete(id);
 
         public void Update(SkillLevel skillLevel) => _skillLevelRepo.Update(skillLevel);
 

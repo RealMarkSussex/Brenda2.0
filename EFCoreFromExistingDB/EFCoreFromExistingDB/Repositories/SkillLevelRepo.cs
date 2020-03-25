@@ -30,7 +30,6 @@ namespace EFCoreFromExistingDB.Repositories
             _context.Entry(_context.SkillLevel.FirstOrDefault(sl => sl.SkillLevelId == id)).State = EntityState.Detached;
             _context.SkillLevel.Remove(skillLevel);
             _context.SaveChanges();
-            _context.Dispose();
         }
 
         public void Update(SkillLevel skillLevel)
