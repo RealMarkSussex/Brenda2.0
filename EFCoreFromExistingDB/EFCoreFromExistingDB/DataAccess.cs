@@ -9,46 +9,56 @@ namespace EFCoreFromExistingDB
 {
     public class DataAccess : IDataAccess
     {
-        // TODO: Refactor all repos like user repo
         private readonly UserRepo _userRepo;
+        private readonly SkillRepo _skillRepo;
+        private readonly RoleRepo _roleRepo;
+        private readonly SkillLevelRepo _skillLevelRepo;
+        private readonly UserSkillRepo _userSkillRepo;
+        private readonly LevelRepo _levelRepo;
         public DataAccess()
         {
             _userRepo = new UserRepo();
+            _skillRepo = new SkillRepo();
+            _roleRepo = new RoleRepo();
+            _skillLevelRepo = new SkillLevelRepo();
+            _userSkillRepo = new UserSkillRepo();
+            _levelRepo = new LevelRepo();
         }
-        public IEnumerable<Level> GetLevels() => LevelRepo.Get();
 
-        public void Add(Level level) => LevelRepo.Add(level);
+        public IEnumerable<Level> GetLevels() => _levelRepo.Get();
 
-        public void Delete(Level level) => LevelRepo.Delete(level);
+        public void Add(Level level) => _levelRepo.Add(level);
 
-        public void Update(Level level) => LevelRepo.Update(level);
+        public void DeleteLevel(int id) => _levelRepo.Delete(id);
 
-
-        public IEnumerable<Role> GetRoles() => RoleRepo.Get();
-
-        public void Add(Role role) => RoleRepo.Add(role);
-
-        public void Delete(Role role) => RoleRepo.Delete(role);
-
-        public void Update(Role role) => RoleRepo.Update(role);
+        public void Update(Level level) => _levelRepo.Update(level);
 
 
-        public IEnumerable<Skill> GetSkills() => SkillRepo.Get();
+        public IEnumerable<Role> GetRoles() => _roleRepo.Get();
 
-        public void Add(Skill skill) => SkillRepo.Add(skill);
+        public void Add(Role role) => _roleRepo.Add(role);
 
-        public void Delete(Skill skill) => SkillRepo.Delete(skill);
+        public void DeleteRole(int id) => _roleRepo.Delete(id);
 
-        public void Update(Skill skill) => SkillRepo.Update(skill);
+        public void Update(Role role) => _roleRepo.Update(role);
 
 
-        public IEnumerable<SkillLevel> GetSkillLevels() => SkillLevelRepo.Get();
+        public IEnumerable<Skill> GetSkills() => _skillRepo.Get();
 
-        public void Add(SkillLevel skillLevel) => SkillLevelRepo.Add(skillLevel);
+        public void Add(Skill skill) => _skillRepo.Add(skill);
 
-        public void Delete(SkillLevel skillLevel) => SkillLevelRepo.Delete(skillLevel);
+        public void DeleteSkill(int id) => _skillRepo.Delete(id);
 
-        public void Update(SkillLevel skillLevel) => SkillLevelRepo.Update(skillLevel);
+        public void Update(Skill skill) => _skillRepo.Update(skill);
+
+
+        public IEnumerable<SkillLevel> GetSkillLevels() => _skillLevelRepo.Get();
+
+        public void Add(SkillLevel skillLevel) => _skillLevelRepo.Add(skillLevel);
+
+        public void DeleteSkillLevel(int id) => _skillLevelRepo.Delete(id);
+
+        public void Update(SkillLevel skillLevel) => _skillLevelRepo.Update(skillLevel);
 
 
         public IEnumerable<User> GetUsers() => _userRepo.Get();
@@ -60,12 +70,12 @@ namespace EFCoreFromExistingDB
         public void Update(User user) => _userRepo.Update(user);
 
 
-        public IEnumerable<UserSkill> GetUserSkills() => UserSkillRepo.Get();
+        public IEnumerable<UserSkill> GetUserSkills() => _userSkillRepo.Get();
 
-        public void Add(UserSkill userSkill) => UserSkillRepo.Add(userSkill);
+        public void Add(UserSkill userSkill) => _userSkillRepo.Add(userSkill);
 
-        public void Delete(UserSkill userSkill) => UserSkillRepo.Delete(userSkill);
+        public void DeleteUserSkill(int id) => _userSkillRepo.Delete(id);
 
-        public void Update(UserSkill userSkill) => UserSkillRepo.Update(userSkill);
+        public void Update(UserSkill userSkill) => _userSkillRepo.Update(userSkill);
     }
 }

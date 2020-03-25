@@ -33,8 +33,8 @@ namespace EFCoreFromExistingDB.Repositories
 
         public void Update(Skill skill)
         {
-            var context = new Brenda20Context();
-            context.Skill.Update(skill);
+            _context.Entry(_context.Skill.FirstOrDefault(s => s.SkillId == skill.SkillId)).State = EntityState.Detached;
+            _context.Skill.Update(skill);
             _context.SaveChanges();
         }
     }

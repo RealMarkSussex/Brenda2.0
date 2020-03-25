@@ -1,32 +1,41 @@
 ﻿using EFCoreFromExistingDB.Models;
 using System.Collections.Generic;
+using System.Linq;
+using Microsoft.EntityFrameworkCore;
 
 namespace EFCoreFromExistingDB.Repositories
 {
-    internal static class UserSkillRepo
+    internal class UserSkillRepo
     {
-        public static IEnumerable<UserSkill> Get()
+        private readonly Brenda20Context _context;
+        public UserSkillRepo()
         {
-            var context = new Brenda20Context();
-            return context.UserSkill;
+            _context = new Brenda20Context();
+        }
+        public IEnumerable<UserSkill> Get()
+        {
+            return _context.UserSkill;
         }
 
-        public static void Add(UserSkill userSkill)
+        public void Add(UserSkill userSkill)
         {
-            var context = new Brenda20Context();
-            context.UserSkill.Add(userSkill);
+            _context.UserSkill.Add(userSkill);
+            _context.SaveChanges();
         }
 
-        public static void Delete(UserSkill userSkill)
+        public void Delete(int id)
         {
-            var context = new Brenda20Context();
-            context.UserSkill.Remove(userSkill);
+            var userSkill = new UserSkill() { UserSkillId = id };
+            _context.Entry(_context.UserSkill.FirstOrDefault(us => us.UserSkillId == id)).State = EntityState.Detached;
+            _context.UserSkill.Remove(userSkill);
+            _context.SaveChanges();
         }
 
-        public static void Update(UserSkill userSkill)
+        public void Update(UserSkill userSkill)
         {
-            var context = new Brenda20Context();
-            context.UserSkill.Update(userSkill);
+            _context.Entry(_context.UserSkill.FirstOrDefault(us => us.UserSkillId == userSkill.UserSkillId)).State = EntityState.Detached;
+            _context.UserSkill.Update(userSkill);
+            _context.SaveChanges();
         }
     }
 }

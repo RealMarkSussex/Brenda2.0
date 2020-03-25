@@ -1,32 +1,42 @@
 ﻿using EFCoreFromExistingDB.Models;
 using System.Collections.Generic;
+using System.Linq;
+using Microsoft.EntityFrameworkCore;
 
 namespace EFCoreFromExistingDB.Repositories
 {
-    internal static class SkillLevelRepo
+    internal class SkillLevelRepo
     {
-        public static IEnumerable<SkillLevel> Get()
+        private readonly Brenda20Context _context;
+
+        public SkillLevelRepo()
         {
-            var context = new Brenda20Context();
-            return context.SkillLevel;
+            _context = new Brenda20Context();
+        }
+        public IEnumerable<SkillLevel> Get()
+        {
+            return _context.SkillLevel;
         }
 
-        public static void Add(SkillLevel skillLevel)
+        public void Add(SkillLevel skillLevel)
         {
-            var context = new Brenda20Context();
-            context.SkillLevel.Add(skillLevel);
+            _context.SkillLevel.Add(skillLevel);
+            _context.SaveChanges();
         }
 
-        public static void Delete(SkillLevel skillLevel)
+        public void Delete(int id)
         {
-            var context = new Brenda20Context();
-            context.SkillLevel.Remove(skillLevel);
+            var skillLevel = new SkillLevel() { SkillLevelId = id };
+            _context.Entry(_context.SkillLevel.FirstOrDefault(sl => sl.SkillLevelId == id)).State = EntityState.Detached;
+            _context.SkillLevel.Remove(skillLevel);
+            _context.SaveChanges();
         }
 
-        public static void Update(SkillLevel skillLevel)
+        public void Update(SkillLevel skillLevel)
         {
-            var context = new Brenda20Context();
-            context.SkillLevel.Update(skillLevel);
+            _context.Entry(_context.SkillLevel.FirstOrDefault(sl => sl.SkillLevelId == skillLevel.SkillLevelId)).State = EntityState.Detached;
+            _context.SkillLevel.Update(skillLevel);
+            _context.SaveChanges();
         }
     }
 }

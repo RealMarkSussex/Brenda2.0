@@ -38,6 +38,7 @@ namespace API.Controllers
                 return NotFound();
             }
 
+            _service.DeleteSkill(id);
             return Ok();
         }
     }

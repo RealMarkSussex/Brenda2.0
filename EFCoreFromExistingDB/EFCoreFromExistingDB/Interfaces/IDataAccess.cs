@@ -7,25 +7,25 @@ namespace EFCoreFromExistingDB.Interfaces
     {
         IEnumerable<Level> GetLevels();
         void Add(Level level);
-        void Delete(Level level);
+        void DeleteLevel(int id);
         void Update(Level level);
 
 
         IEnumerable<Role> GetRoles();
         void Add(Role role);
-        void Delete(Role role);
+        void DeleteRole(int id);
         void Update(Role role);
 
 
         IEnumerable<Skill> GetSkills();
         void Add(Skill skill);
-        void Delete(Skill skill);
+        void DeleteSkill(int id);
         void Update(Skill skill);
 
 
         IEnumerable<SkillLevel> GetSkillLevels();
         void Add(SkillLevel skillLevel);
-        void Delete(SkillLevel skillLevel);
+        void DeleteSkillLevel(int id);
         void Update(SkillLevel skillLevel);
 
 
@@ -37,7 +37,7 @@ namespace EFCoreFromExistingDB.Interfaces
 
         IEnumerable<UserSkill> GetUserSkills();
         void Add(UserSkill userSkill);
-        void Delete(UserSkill userSkill);
+        void DeleteUserSkill(int id);
         void Update(UserSkill userSkill);
     }
 }

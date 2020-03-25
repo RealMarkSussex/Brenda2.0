@@ -1,31 +1,40 @@
 ﻿using EFCoreFromExistingDB.Models;
 using System.Collections.Generic;
+using System.Linq;
+using Microsoft.EntityFrameworkCore;
 
 namespace EFCoreFromExistingDB.Repositories
 {
-    internal static class LevelRepo
+    internal class LevelRepo
     {
-        public static IEnumerable<Level> Get()
+        private readonly Brenda20Context _context;
+        public LevelRepo()
         {
-            var context = new Brenda20Context();
-            return context.Level;
+            _context = new Brenda20Context();
+        }
+        public IEnumerable<Level> Get()
+        {
+            return _context.Level;
         }
 
-        public static void Add(Level level)
+        public void Add(Level level)
         {
-            var context = new Brenda20Context();
-            context.Level.Add(level);
+            _context.Level.Add(level);
+            _context.SaveChanges();
         }
-        public static void Delete(Level level)
+        public void Delete(int id)
         {
-            var context = new Brenda20Context();
-            context.Level.Remove(level);
+            var level = new Level() { LevelId = id };
+            _context.Entry(_context.Level.FirstOrDefault(l => l.LevelId == id)).State = EntityState.Detached;
+            _context.Level.Remove(level);
+            _context.SaveChanges();
         }
 
-        public static void Update(Level level)
+        public void Update(Level level)
         {
-            var context = new Brenda20Context();
-            context.Level.Update(level);
+            _context.Entry(_context.Level.FirstOrDefault(l => l.LevelId == level.LevelId)).State = EntityState.Detached;
+            _context.Level.Update(level);
+            _context.SaveChanges();
         }
     }
 }

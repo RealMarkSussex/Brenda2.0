@@ -1,32 +1,41 @@
 ﻿using EFCoreFromExistingDB.Models;
 using System.Collections.Generic;
+using System.Linq;
+using Microsoft.EntityFrameworkCore;
 
 namespace EFCoreFromExistingDB.Repositories
 {
-    internal static class RoleRepo
+    internal class RoleRepo
     {
-        public static IEnumerable<Role> Get()
+        private readonly Brenda20Context _context;
+        public RoleRepo()
         {
-            var context = new Brenda20Context();
-            return context.Role;
+            _context = new Brenda20Context();
+        }
+        public IEnumerable<Role> Get()
+        {
+            return _context.Role;
         }
 
-        public static void Add(Role role)
+        public void Add(Role role)
         {
-            var context = new Brenda20Context();
-            context.Role.Add(role);
+            _context.Role.Add(role);
+            _context.SaveChanges();
         }
 
-        public static void Delete(Role role)
+        public void Delete(int id)
         {
-            var context = new Brenda20Context();
-            context.Role.Remove(role);
+            var role = new Role() { RoleId = id };
+            _context.Entry(_context.Role.FirstOrDefault(r => r.RoleId == id)).State = EntityState.Detached;
+            _context.Role.Remove(role);
+            _context.SaveChanges();
         }
 
-        public static void Update(Role role)
+        public void Update(Role role)
         {
-            var context = new Brenda20Context();
-            context.Role.Update(role);
+            _context.Entry(_context.Role.FirstOrDefault(r => r.RoleId == role.RoleId)).State = EntityState.Detached;
+            _context.Role.Update(role);
+            _context.SaveChanges();
         }
     }
 }

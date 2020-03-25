@@ -23,9 +23,7 @@ namespace ServiceLayer
 
         public void DeleteSkill(int id)
         {
-            foreach (var skill in _database.GetUserSkills())
-            {
-            }
+            _database.DeleteSkill(id);
         }
 
         public IEnumerable<ServiceUser> GetUsers()
