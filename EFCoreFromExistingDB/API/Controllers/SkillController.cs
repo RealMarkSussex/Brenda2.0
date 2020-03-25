@@ -1,6 +1,7 @@
 ﻿using System.Linq;
 using AutoMapper;
 using EFCoreFromExistingDB;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using ServiceLayer;
 using ServiceLayer.Interfaces;
@@ -8,6 +9,7 @@ using ServiceLayer.Models;
 
 namespace API.Controllers
 {
+    [EnableCors("AllowOrigin")]
     [ApiController]
     [Route("api/[controller]")]
     public class SkillController : Controller
@@ -21,7 +23,6 @@ namespace API.Controllers
         [HttpGet]
         public IActionResult Get()
         {
-            Response.Headers.Add("Access-Control-Allow-Origin", "*");
             var skills = _service.GetSkills().ToList();
             if (!skills.Any())
             {

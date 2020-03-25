@@ -1,17 +1,20 @@
 <template>
   <div class="home">
-    <Skills></Skills>
+    <SkillsTable></SkillsTable>
+    <SkillsForm></SkillsForm>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import Skills from '@/components/Skills.vue'
+import SkillsTable from '@/components/SkillsTable.vue'
+import SkillsForm from '@/components/SkillsForm.vue'
 
 export default {
   name: 'Home',
   components: {
-    Skills
+    SkillsTable,
+    SkillsForm
   }
 }
 </script>
