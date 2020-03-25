@@ -23,6 +23,10 @@ namespace ServiceLayer
 
         public void DeleteSkill(int id)
         {
+            foreach (var skillLevel in _database.GetSkillLevels().Where(sl => sl.SkillId == id))
+            {
+                _database.DeleteSkillLevel(skillLevel.SkillLevelId);
+            }
             _database.DeleteSkill(id);
         }
 

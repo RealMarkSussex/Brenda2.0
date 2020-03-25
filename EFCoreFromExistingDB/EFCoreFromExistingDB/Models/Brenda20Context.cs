@@ -37,13 +37,13 @@ namespace EFCoreFromExistingDB.Models
                 entity.HasOne(d => d.Level)
                     .WithMany(p => p.SkillLevel)
                     .HasForeignKey(d => d.LevelId)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .OnDelete(DeleteBehavior.Cascade)
                     .HasConstraintName("FK_SkillLevel_LevelID");
 
                 entity.HasOne(d => d.Skill)
                     .WithMany(p => p.SkillLevel)
                     .HasForeignKey(d => d.SkillId)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .OnDelete(DeleteBehavior.Cascade)
                     .HasConstraintName("FK_SkillLevel_SkillID");
             });
 
@@ -52,13 +52,13 @@ namespace EFCoreFromExistingDB.Models
                 entity.HasOne(d => d.DesiredRole)
                     .WithMany(p => p.UserDesiredRole)
                     .HasForeignKey(d => d.DesiredRoleId)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .OnDelete(DeleteBehavior.Cascade)
                     .HasConstraintName("FK_User_DesiredRoleID");
 
                 entity.HasOne(d => d.Role)
                     .WithMany(p => p.UserRole)
                     .HasForeignKey(d => d.RoleId)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .OnDelete(DeleteBehavior.Cascade)
                     .HasConstraintName("FK_User_RoleID");
             });
 
@@ -67,7 +67,7 @@ namespace EFCoreFromExistingDB.Models
                 entity.HasOne(d => d.User)
                     .WithMany(p => p.UserSkill)
                     .HasForeignKey(d => d.UserId)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .OnDelete(DeleteBehavior.Cascade)
                     .HasConstraintName("FK_UserSkill_UserID");
             });
 
