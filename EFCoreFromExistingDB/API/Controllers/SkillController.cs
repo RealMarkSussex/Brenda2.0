@@ -21,12 +21,24 @@ namespace API.Controllers
         public IActionResult Get()
         {
             Response.Headers.Add("Access-Control-Allow-Origin", "*");
-            var skills = _service.GetServiceSkills().ToList();
+            var skills = _service.GetSkills().ToList();
             if (!skills.Any())
             {
                 return NotFound();
             }
             return new OkObjectResult(skills);
+        }
+
+        [HttpDelete("{id}")]
+        public IActionResult Delete(int id)
+        {
+            var skill = _service.GetSkills().FirstOrDefault(s => s.SkillId == id);
+            if (skill == null)
+            {
+                return NotFound();
+            }
+
+            return Ok();
         }
     }
 }

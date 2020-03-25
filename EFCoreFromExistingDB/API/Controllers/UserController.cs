@@ -5,9 +5,11 @@ using ServiceLayer;
 using ServiceLayer.Interfaces;
 using ServiceLayer.Models;
 using System.Linq;
+using Microsoft.AspNetCore.Cors;
 
 namespace API.Controllers
 {
+    [EnableCors("AllowOrigin")]
     [Route("api/[controller]")]
     [ApiController]
     public class UserController : ControllerBase
@@ -67,7 +69,7 @@ namespace API.Controllers
                 return NotFound();
             }
 
-            _service.Delete(id);
+            _service.DeleteUser(id);
             return Ok();
         }
 

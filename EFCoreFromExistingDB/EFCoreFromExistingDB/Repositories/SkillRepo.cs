@@ -1,32 +1,41 @@
 ﻿using EFCoreFromExistingDB.Models;
 using System.Collections.Generic;
+using System.Linq;
+using Microsoft.EntityFrameworkCore;
 
 namespace EFCoreFromExistingDB.Repositories
 {
-    internal static class SkillRepo
+    internal class SkillRepo
     {
-        public static IEnumerable<Skill> Get()
+        private readonly Brenda20Context _context;
+        public SkillRepo()
         {
-            var context = new Brenda20Context();
-            return context.Skill;
+            _context = new Brenda20Context();
+        }
+        public IEnumerable<Skill> Get()
+        {
+            return _context.Skill;
         }
 
-        public static void Add(Skill skill)
+        public void Add(Skill skill)
         {
-            var context = new Brenda20Context();
-            context.Skill.Add(skill);
+            _context.Skill.Add(skill);
+            _context.SaveChanges();
         }
 
-        public static void Delete(Skill skill)
+        public void Delete(int id)
         {
-            var context = new Brenda20Context();
-            context.Skill.Remove(skill);
+            var skill = new Skill() { SkillId = id };
+            _context.Entry(_context.Skill.FirstOrDefault(s => s.SkillId == id)).State = EntityState.Detached;
+            _context.Skill.Remove(skill);
+            _context.SaveChanges();
         }
 
-        public static void Update(Skill skill)
+        public void Update(Skill skill)
         {
             var context = new Brenda20Context();
             context.Skill.Update(skill);
+            _context.SaveChanges();
         }
     }
 }

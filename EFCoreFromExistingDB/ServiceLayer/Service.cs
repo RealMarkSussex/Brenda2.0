@@ -18,8 +18,15 @@ namespace ServiceLayer
             _mapper = mapper;
             _database = database;
         }
-        public IEnumerable<ServiceSkill> GetServiceSkills() => 
+        public IEnumerable<ServiceSkill> GetSkills() => 
             _mapper.Map<IEnumerable<Skill>, IEnumerable<ServiceSkill>>(_database.GetSkills());
+
+        public void DeleteSkill(int id)
+        {
+            foreach (var skill in _database.GetUserSkills())
+            {
+            }
+        }
 
         public IEnumerable<ServiceUser> GetUsers()
         {
@@ -53,7 +60,7 @@ namespace ServiceLayer
             _database.Add(_mapper.Map<ServiceUser, User>(user));
         }
 
-        public void Delete(int id)
+        public void DeleteUser(int id)
         {
             _database.DeleteUser(id);
         }

@@ -5,10 +5,10 @@ namespace ServiceLayer.Interfaces
 {
     public interface IService
     {
-        IEnumerable<ServiceSkill> GetServiceSkills();
+        IEnumerable<ServiceSkill> GetSkills();
         IEnumerable<ServiceUser> GetUsers();
         void Add(ServiceUser user);
-        void Delete(int id);
+        void DeleteUser(int id);
         void Update(ServiceUser user);
 
     }

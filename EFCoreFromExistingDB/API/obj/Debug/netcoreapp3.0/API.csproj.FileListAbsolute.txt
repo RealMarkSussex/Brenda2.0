@@ -129,4 +129,9 @@ C:\Users\marksussex\Documents\C# Projects\Brenda2.0\EFCoreFromExistingDB\API\bin
 C:\Users\marksussex\Documents\C# Projects\Brenda2.0\EFCoreFromExistingDB\API\bin\Debug\netcoreapp3.0\ServiceLayer.dll
 C:\Users\marksussex\Documents\C# Projects\Brenda2.0\EFCoreFromExistingDB\API\bin\Debug\netcoreapp3.0\ServiceLayer.pdb
 C:\Users\marksussex\Documents\C# Projects\Brenda2.0\EFCoreFromExistingDB\API\bin\Debug\netcoreapp3.0\EFCoreFromExistingDB.pdb
+C:\Users\marksussex\Documents\C# Projects\Brenda2.0\EFCoreFromExistingDB\API\bin\Debug\netcoreapp3.0\System.Web.Cors.dll
+C:\Users\marksussex\Documents\C# Projects\Brenda2.0\EFCoreFromExistingDB\API\bin\Debug\netcoreapp3.0\System.Net.Http.Formatting.dll
+C:\Users\marksussex\Documents\C# Projects\Brenda2.0\EFCoreFromExistingDB\API\bin\Debug\netcoreapp3.0\System.Web.Http.dll
+C:\Users\marksussex\Documents\C# Projects\Brenda2.0\EFCoreFromExistingDB\API\bin\Debug\netcoreapp3.0\System.Web.Http.Cors.dll
+C:\Users\marksussex\Documents\C# Projects\Brenda2.0\EFCoreFromExistingDB\API\bin\Debug\netcoreapp3.0\Newtonsoft.Json.Bson.dll
 C:\Users\marksussex\Documents\C# Projects\Brenda2.0\EFCoreFromExistingDB\API\obj\Debug\netcoreapp3.0\API.MvcApplicationPartsAssemblyInfo.cache

@@ -21,6 +21,10 @@ namespace API
             var mapper = mappingConfig.CreateMapper();
             services.AddSingleton(mapper);
             services.AddMvc(option => option.EnableEndpointRouting = false);
+            services.AddCors(c =>
+            {
+                c.AddPolicy("AllowOrigin", options => options.AllowAnyOrigin().AllowAnyHeader());
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -30,14 +34,13 @@ namespace API
             {
                 app.UseDeveloperExceptionPage();
             }
-
             app.UseStatusCodePages();
             app.UseRouting();
+            app.UseCors(options => options.AllowAnyOrigin().AllowAnyHeader());
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
             });
-
             app.UseMvc();
         }
     }

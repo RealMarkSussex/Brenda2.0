@@ -26,8 +26,8 @@ namespace EFCoreFromExistingDB.Repositories
 
         public void Delete(int id)
         {
-            var user = Get().FirstOrDefault(u => u.UserId == id);
-            _context.User.Attach(user ?? throw new InvalidOperationException());
+            var user = new User() {UserId = id};
+            _context.Entry(_context.User.FirstOrDefault(u => u.UserId == id)).State = EntityState.Detached;
             _context.User.Remove(user);
             _context.SaveChanges();
         }

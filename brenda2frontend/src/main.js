@@ -6,7 +6,8 @@ import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 Vue.use(BootstrapVue)
 Vue.use(IconsPlugin)
-
+var cors = require('cors');
+Vue.use(cors)
 Vue.config.productionTip = false
 
 new Vue({
