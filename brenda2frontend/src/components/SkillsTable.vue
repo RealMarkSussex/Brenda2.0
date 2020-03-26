@@ -5,23 +5,33 @@
       <label>Toggle Dark Mode</label>
       <b-checkbox v-model="darkMode"></b-checkbox>
       <table class="table table-striped" :class="[{'table-dark': darkMode}, 'table-bordered']">
-      <thead class="thead-light">
-        <th>#</th>
-        <th>Name</th>
-        <th>Description</th>
-        <th>Remove</th>
-      </thead>
-      <tbody>
-        <tr v-for="(skill, index) in skills" :key="skill.skillId" :class="{highlight: getSqlStyle(skill)}">
-          <td>{{index + 1}}</td>
-          <td>{{skill.name}}</td>
-          <td>{{skill.description}}</td>
-          <td>
-            <button @click="removeSkill(skill.skillId)" class="btn btn-warning">Remove Skill</button>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+        <thead class="thead-light">
+          <th>#</th>
+          <th>Name</th>
+          <th>Description</th>
+          <th>Level Descriptions</th>
+          <th>Remove</th>
+        </thead>
+        <tbody>
+          <tr
+            v-for="(skill, index) in skills"
+            :key="skill.skillId"
+            :class="{highlight: getSqlStyle(skill)}"
+          >
+            <td>{{index + 1}}</td>
+            <td>{{skill.name}}</td>
+            <td>{{skill.description}}</td>
+            <td>
+              <ul>
+                <li v-for="skillLevel in skill.skillLevel" :key="skillLevel.skillLevelId">{{skillLevel.description}}</li>
+              </ul>
+            </td>
+            <td>
+              <button @click="removeSkill(skill.skillId)" class="btn btn-warning">Remove Skill</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
 </template>
@@ -34,22 +44,23 @@ export default {
   data() {
     return {
       skills: [],
-      darkMode: false
+      darkMode: true
     };
   },
   methods: {
     removeSkill: function(skillId) {
-      axios.delete('https://localhost:44304/api/Skill/' + skillId)
+      axios
+        .delete("https://localhost:44304/api/Skill/" + skillId)
         .then(res => console.log(res))
-        .catch(err => console.log(err))
+        .catch(err => console.log(err));
     },
     getSqlStyle: function(skill) {
-      if(skill.name === 'C#') {
+      if (skill.name === "C#") {
         return true;
       } else {
         return false;
       }
-    },
+    }
   },
   beforeUpdate() {
     axios
@@ -67,7 +78,7 @@ export default {
 </script>
 
 <style lang="postcss" scoped>
-  .highlight {
-    border: solid 3px red
-  }
+.highlight {
+  border: solid 3px red;
+}
 </style>

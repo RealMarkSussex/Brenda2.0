@@ -18,9 +18,18 @@ namespace ServiceLayer
             _mapper = mapper;
             _database = database;
         }
-        public IEnumerable<ServiceSkill> GetSkills() => 
-            _mapper.Map<IEnumerable<Skill>, IEnumerable<ServiceSkill>>(_database.GetSkills());
+        public IEnumerable<ServiceSkill> GetSkills()
+        {
+            var skills = _database.GetSkills().ToList();
+            var newSkills = new List<Skill>();
+            foreach (var skill in skills)
+            {
+                skill.SkillLevel = _database.GetSkillLevels().Where(sl => sl.SkillId == skill.SkillId).ToList();
+                newSkills.Add(skill);
+            }
+            return _mapper.Map<IEnumerable<Skill>, IEnumerable<ServiceSkill>>(newSkills);
 
+        }
         public void DeleteSkill(int id)
         {
             foreach (var skillLevel in _database.GetSkillLevels().Where(sl => sl.SkillId == id))
