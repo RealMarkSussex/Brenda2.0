@@ -24,7 +24,6 @@ namespace API.Controllers
         [HttpGet]
         public IActionResult Get()
         {
-            Response.Headers.Add("Access-Control-Allow-Origin", "*");
             var users = _service.GetUsers();
             if (!users.Any())
             {
@@ -36,7 +35,6 @@ namespace API.Controllers
         [HttpGet("{id}")]
         public IActionResult Get(int id)
         {
-            Response.Headers.Add("Access-Control-Allow-Origin", "*");
             var user = _service.GetUsers().FirstOrDefault(u => u.UserId == id);
             if (user == null)
             {
@@ -48,7 +46,6 @@ namespace API.Controllers
         [HttpPost]
         public IActionResult Post([FromBody] ServiceUser user)
         {
-            Response.Headers.Add("Access-Control-Allow-Origin", "*");
             if (!ModelState.IsValid)
             {
                 return BadRequest();
@@ -62,7 +59,6 @@ namespace API.Controllers
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {
-            Response.Headers.Add("Access-Control-Allow-Origin", "*");
             var user = _service.GetUsers().FirstOrDefault(u => u.UserId == id);
             if (user == null)
             {

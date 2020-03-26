@@ -1,19 +1,17 @@
 <template>
-  <div class="card mt-5">
-    <div class="container">
-      <h2 class="card-header">Add Skill</h2>
-      <form class="mt-5" @submit="addSkill">
-        <label>Name</label>
-        <input type="text" v-model="serviceSkill.name" class="form-control" />
-        <br />
+  <div class="container">
+    <form class="mt-5" @submit="addSkill">
+      <h1>Add Skill</h1>
+      <label>Name</label>
+      <input type="text" v-model="serviceSkill.Name" class="form-control" />
+      <br />
 
-        <label>Description</label>
-        <input type="text" v-model="serviceSkill.description" class="form-control" />
-        <br />
+      <label>Description</label>
+      <input type="text" v-model="serviceSkill.Description" class="form-control" />
+      <br />
 
-        <button type="submit" value="Add Skill" class="btn btn-primary">Add Skill</button>
-      </form>
-    </div>
+      <button type="submit" value="Add Skill" class="btn btn-primary">Add Skill</button>
+    </form>
     <label>{{serviceSkill}}</label>
   </div>
 </template>
@@ -25,23 +23,19 @@ export default {
   data() {
     return {
       serviceSkill: {
-        name: "",
-        description: ""
+        Name: "",
+        Description: ""
       }
     };
   },
   methods: {
     addSkill: function() {
       axios
-        .post("https://localhost:44304/api/Skill", {
-          body: JSON.stringify(this.serviceSkill)
-        })
+        .post("https://localhost:44304/api/Skill", this.serviceSkill)
         .then(response => {
-          console.clear();
-          console.log(response.data);
+            console.log(response)
         })
         .catch(err => {
-          console.clear();
           console.log(err);
         });
     }

@@ -20,6 +20,7 @@ namespace API.Controllers
         {
             _service = new Service(new DataAccess(), mapper);
         }
+
         [HttpGet]
         public IActionResult Get()
         {
@@ -47,11 +48,11 @@ namespace API.Controllers
         [HttpPost]
         public IActionResult Post([FromBody] ServiceSkill skill)
         {
-            _service.Add(skill);
             if (!ModelState.IsValid)
             {
                 return BadRequest();
             }
+            _service.Add(skill);
             return Ok();
         }
     }
