@@ -10,9 +10,24 @@
       <input type="text" v-model="serviceSkill.Description" class="form-control" />
       <br />
 
+      <label>Level 1 Description</label>
+      <input type="text" v-model="serviceSkill.Level1Description" class="form-control" />
+      <br />
+
+      <label>Level 2 Description</label>
+      <input type="text" v-model="serviceSkill.Level2Description" class="form-control" />
+      <br />
+
+      <label>Level 3 Description</label>
+      <input type="text" v-model="serviceSkill.Level3Description" class="form-control" />
+      <br />
+
+      <label>Level 4 Description</label>
+      <input type="text" v-model="serviceSkill.Level4Description" class="form-control" />
+      <br />
+
       <button type="submit" value="Add Skill" class="btn btn-primary">Add Skill</button>
     </form>
-    <label>{{serviceSkill}}</label>
   </div>
 </template>
 
@@ -24,7 +39,11 @@ export default {
     return {
       serviceSkill: {
         Name: "",
-        Description: ""
+        Description: "",
+        Level1Description: "",
+        Level2Description: "",
+        Level3Description: "",
+        Level4Description: ""
       }
     };
   },
@@ -38,6 +57,7 @@ export default {
         .catch(err => {
           console.log(err);
         });
+        this.text = "";
     }
   }
 };

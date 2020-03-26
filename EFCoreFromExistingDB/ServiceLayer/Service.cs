@@ -33,6 +33,31 @@ namespace ServiceLayer
         public void Add(ServiceSkill skill)
         {
             _database.Add(_mapper.Map<ServiceSkill, Skill>(skill));
+            var skillAdded = _database.GetSkills().Last();
+            _database.Add(_mapper.Map<ServiceSkillLevel, SkillLevel>(new ServiceSkillLevel()
+            {
+                SkillId = skillAdded.SkillId,
+                Description = skill.Level1Description,
+                LevelId = 1
+            }));
+            _database.Add(_mapper.Map<ServiceSkillLevel, SkillLevel>(new ServiceSkillLevel()
+            {
+                SkillId = skillAdded.SkillId,
+                Description = skill.Level2Description,
+                LevelId = 2
+            }));
+            _database.Add(_mapper.Map<ServiceSkillLevel, SkillLevel>(new ServiceSkillLevel()
+            {
+                SkillId = skillAdded.SkillId,
+                Description = skill.Level3Description,
+                LevelId = 3
+            }));
+            _database.Add(_mapper.Map<ServiceSkillLevel, SkillLevel>(new ServiceSkillLevel()
+            {
+                SkillId = skillAdded.SkillId,
+                Description = skill.Level4Description,
+                LevelId = 4
+            }));
         }
 
         public IEnumerable<ServiceUser> GetUsers()

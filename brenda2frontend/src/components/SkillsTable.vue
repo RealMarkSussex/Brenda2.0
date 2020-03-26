@@ -17,7 +17,7 @@
           <td>{{skill.name}}</td>
           <td>{{skill.description}}</td>
           <td>
-            <button @click="removeSkill(index)" class="btn btn-warning">Remove Skill</button>
+            <button @click="removeSkill(skill.skillId)" class="btn btn-warning">Remove Skill</button>
           </td>
         </tr>
       </tbody>
@@ -38,8 +38,10 @@ export default {
     };
   },
   methods: {
-    removeSkill: function(index) {
-      this.skills.splice(index, 1)
+    removeSkill: function(skillId) {
+      axios.delete('https://localhost:44304/api/Skill/' + skillId)
+        .then(res => console.log(res))
+        .catch(err => console.log(err))
     },
     getSqlStyle: function(skill) {
       if(skill.name === 'C#') {
@@ -49,7 +51,13 @@ export default {
       }
     },
   },
-  created() {
+  beforeUpdate() {
+    axios
+      .get("https://localhost:44304/api/Skill")
+      .then(res => (this.skills = res.data.slice(0, 10)))
+      .catch(err => console.log(err));
+  },
+  mounted() {
     axios
       .get("https://localhost:44304/api/Skill")
       .then(res => (this.skills = res.data.slice(0, 10)))

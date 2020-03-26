@@ -11,5 +11,10 @@ namespace ServiceLayer.Models
         [Required]
         [StringLength(255)]
         public string Description { get; set; }
+        public string Level1Description { get; set; }
+        public string Level2Description { get; set; }
+        public string Level3Description { get; set; }
+        public string Level4Description { get; set; }
+
     }
 }

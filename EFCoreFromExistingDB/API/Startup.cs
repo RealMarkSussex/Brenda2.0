@@ -23,7 +23,7 @@ namespace API
             services.AddMvc(option => option.EnableEndpointRouting = false);
             services.AddCors(c =>
             {
-                c.AddPolicy("AllowOrigin", options => options.AllowAnyOrigin().AllowAnyHeader());
+                c.AddPolicy("AllowOrigin", options => options.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
             });
         }
 
@@ -36,7 +36,7 @@ namespace API
             }
             app.UseStatusCodePages();
             app.UseRouting();
-            app.UseCors(options => options.AllowAnyOrigin().AllowAnyHeader());
+            app.UseCors(options => options.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
