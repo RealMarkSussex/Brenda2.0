@@ -11,7 +11,7 @@ namespace API
             CreateMap<Skill, ServiceSkill>().ReverseMap();
             CreateMap<User, ServiceUser>().ReverseMap();
             CreateMap<SkillLevel, ServiceSkillLevel>().ReverseMap();
-
+            CreateMap<Role, ServiceRole>().ReverseMap();
         }
     }
 }

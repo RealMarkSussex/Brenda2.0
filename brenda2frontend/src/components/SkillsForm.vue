@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <form class="mt-5" @submit="addSkill">
+    <form @submit="addSkill">
       <h1>Add Skill</h1>
       <label>Name</label>
       <input type="text" v-model="serviceSkill.name" class="form-control" />

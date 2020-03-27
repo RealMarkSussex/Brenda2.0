@@ -23,7 +23,7 @@
             <td>{{skill.description}}</td>
             <td>
               <ul>
-                <li v-for="skillLevel in skill.skillLevel" :key="skillLevel.skillLevelId">{{skillLevel.description}}</li>
+                <li v-for="(skillLevel,index) in skill.skillLevel" :key="skillLevel.skillLevelId" class="alignLeft">Level {{index + 1}}: {{skillLevel.description}}</li>
               </ul>
             </td>
             <td>
@@ -55,14 +55,14 @@ export default {
         .catch(err => console.log(err));
     },
     getSqlStyle: function(skill) {
-      if (skill.name === "C#") {
+      if (skill.name === "SQL") {
         return true;
       } else {
         return false;
       }
     }
   },
-  beforeUpdate() {
+  updated() {
     axios
       .get("https://localhost:44304/api/Skill")
       .then(res => (this.skills = res.data.slice(0, 10)))
@@ -80,5 +80,8 @@ export default {
 <style lang="postcss" scoped>
 .highlight {
   border: solid 3px red;
+}
+.alignLeft {
+  text-align: left;
 }
 </style>

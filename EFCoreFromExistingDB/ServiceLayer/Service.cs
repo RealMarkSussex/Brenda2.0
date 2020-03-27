@@ -32,11 +32,12 @@ namespace ServiceLayer
         }
         public void DeleteSkill(int id)
         {
+            _database.DeleteSkill(id);
+
             foreach (var skillLevel in _database.GetSkillLevels().Where(sl => sl.SkillId == id))
             {
                 _database.DeleteSkillLevel(skillLevel.SkillLevelId);
             }
-            _database.DeleteSkill(id);
         }
 
         public void Add(ServiceSkill skill)
@@ -71,29 +72,15 @@ namespace ServiceLayer
 
         public IEnumerable<ServiceUser> GetUsers()
         {
-            var serviceUsers = _mapper.Map<IEnumerable<User>, IEnumerable<ServiceUser>>(_database.GetUsers()).ToList();
-            var newServiceUsers = new List<ServiceUser>();
-            var userSkills = _database.GetUserSkills().ToList();
-            var skillLevels = _database.GetSkillLevels().ToList();
-            var newSkillLevels = new List<SkillLevel>();
+            var users = _mapper.Map<IEnumerable<User>, IEnumerable<ServiceUser>>(_database.GetUsers()).ToList();
+            var serviceUsers = new List<ServiceUser>();
 
-            foreach (var skillLevel in skillLevels)
+            foreach (var user in users)
             {
-                skillLevel.Skill = _database.GetSkills().FirstOrDefault(s => s.SkillId == skillLevel.SkillId);
-                skillLevel.Level = _database.GetLevels().FirstOrDefault(l => l.LevelId == skillLevel.LevelId);
-                newSkillLevels.Add(skillLevel);
+                user.UserSkill = GetUserSkills(user.UserId).ToList();
+                serviceUsers.Add(user);
             }
-
-            foreach (var user in serviceUsers)
-            {
-                var specificUserSkills = userSkills.Where(us => us.UserId == user.UserId).ToList();
-                foreach (var userSkill in specificUserSkills)
-                {
-                    user.UserSkills = newSkillLevels.Where(sl => sl.SkillLevelId == userSkill.SkillLevelId).ToList();
-                }
-                newServiceUsers.Add(user);
-            }
-            return newServiceUsers;
+            return serviceUsers;
         }
 
         public void Add(ServiceUser user)
@@ -103,12 +90,27 @@ namespace ServiceLayer
 
         public void DeleteUser(int id)
         {
+            foreach (var userSkill in _database.GetUserSkills().Where(us => us.UserId == id))
+            {
+                _database.DeleteUserSkill(userSkill.UserSkillId);
+            }
+
             _database.DeleteUser(id);
         }
 
         public void Update(ServiceUser user)
         {
             _database.Update(_mapper.Map<ServiceUser, User>(user));
+        }
+
+        public IEnumerable<ServiceRole> GetRoles()
+        {
+            return _mapper.Map<IEnumerable<Role>, IEnumerable<ServiceRole>>(_database.GetRoles());
+        }
+
+        private IEnumerable<UserSkill> GetUserSkills(int userId)
+        {
+            return _database.GetUserSkills().Where(us => us.UserId == userId);
         }
     }
 }
