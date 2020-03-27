@@ -5,6 +5,7 @@ using ServiceLayer;
 using ServiceLayer.Interfaces;
 using ServiceLayer.Models;
 using System.Linq;
+using EFCoreFromExistingDB.Interfaces;
 using Microsoft.AspNetCore.Cors;
 
 namespace API.Controllers
@@ -16,9 +17,9 @@ namespace API.Controllers
     {
         private readonly IService _service;
 
-        public UserController(IMapper mapper)
+        public UserController(IMapper mapper, IDataAccess dataAccess)
         {
-            _service = new Service(new DataAccess(), mapper);
+            _service = new Service(dataAccess, mapper);
         }
 
         [HttpGet]

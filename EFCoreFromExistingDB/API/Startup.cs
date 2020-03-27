@@ -1,5 +1,7 @@
 using System.Threading.Tasks;
 using AutoMapper;
+using EFCoreFromExistingDB;
+using EFCoreFromExistingDB.Interfaces;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
@@ -20,6 +22,8 @@ namespace API
 
             var mapper = mappingConfig.CreateMapper();
             services.AddSingleton(mapper);
+            IDataAccess dataAccess = new DataAccess();
+            services.AddSingleton(dataAccess);
             services.AddMvc(option => option.EnableEndpointRouting = false);
             services.AddCors(c =>
             {

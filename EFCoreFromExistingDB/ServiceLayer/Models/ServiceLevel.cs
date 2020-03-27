@@ -4,7 +4,9 @@ using System.Text;
 
 namespace ServiceLayer.Models
 {
-    class ServiceLevel
+    public class ServiceLevel
     {
+        public int LevelId { get; set; }
+        public int LevelNumber { get; set; }
     }
 }

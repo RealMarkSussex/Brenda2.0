@@ -13,6 +13,8 @@ namespace ServiceLayer.Interfaces
         void DeleteUser(int id);
         void Update(ServiceUser user);
         IEnumerable<ServiceRole> GetRoles();
+        IEnumerable<ServiceLevel> GetLevels();
+        IEnumerable<ServiceSkillLevel> GetSkillLevels();
 
     }
 }

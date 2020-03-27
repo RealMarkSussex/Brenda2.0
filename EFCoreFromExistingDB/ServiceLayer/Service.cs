@@ -108,6 +108,16 @@ namespace ServiceLayer
             return _mapper.Map<IEnumerable<Role>, IEnumerable<ServiceRole>>(_database.GetRoles());
         }
 
+        public IEnumerable<ServiceLevel> GetLevels()
+        {
+            return _mapper.Map<IEnumerable<Level>, IEnumerable<ServiceLevel>>(_database.GetLevels());
+        }
+
+        public IEnumerable<ServiceSkillLevel> GetSkillLevels()
+        {
+            return _mapper.Map<IEnumerable<SkillLevel>, IEnumerable<ServiceSkillLevel>>(_database.GetSkillLevels());
+        }
+
         private IEnumerable<UserSkill> GetUserSkills(int userId)
         {
             return _database.GetUserSkills().Where(us => us.UserId == userId);

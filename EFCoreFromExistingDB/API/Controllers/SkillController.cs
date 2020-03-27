@@ -1,6 +1,7 @@
 ﻿using System.Linq;
 using AutoMapper;
 using EFCoreFromExistingDB;
+using EFCoreFromExistingDB.Interfaces;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using ServiceLayer;
@@ -16,9 +17,9 @@ namespace API.Controllers
     {
         private readonly IService _service;
 
-        public SkillController(IMapper mapper)
+        public SkillController(IMapper mapper, IDataAccess dataAccess)
         {
-            _service = new Service(new DataAccess(), mapper);
+            _service = new Service(dataAccess, mapper);
         }
 
         [HttpGet]
