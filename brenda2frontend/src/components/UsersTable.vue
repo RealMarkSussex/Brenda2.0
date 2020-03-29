@@ -11,10 +11,11 @@
           <th>Email</th>
           <th>Role</th>
           <th>Desired Role</th>
+          <th>User Skills</th>
           <th>Remove</th>
         </thead>
         <tbody>
-          <tr v-for="(user, index) in users" :key="user.skillId">
+          <tr v-for="(user, index) in users" :key="user.userId">
             <td>{{index + 1}}</td>
             <td>{{user.firstName}} {{user.lastName}}</td>
             <td>{{user.email}}</td>
@@ -23,6 +24,9 @@
             </td>
             <td>
               <Role :roleId="user.desiredRoleId"></Role>
+            </td>
+            <td>
+                <li v-for="userSkill in user.userSkills" :key="userSkill.userSkillId"></li> //rather than a list use the user skill component
             </td>
             <td>
               <button @click="removeUser(user.userId)" class="btn btn-warning">Remove User</button>

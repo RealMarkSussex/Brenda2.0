@@ -3,8 +3,3 @@
 bin
 obj
 *.user
-*.pdb
-*.dll
-EFCoreFromExistingDB/.vs/EFCoreFromExistingDB/DesignTimeBuild/.dtbcache
-EFCoreFromExistingDB/.vs/EFCoreFromExistingDB/DesignTimeBuild/.dtbcache
-EFCoreFromExistingDB/.vs/EFCoreFromExistingDB/v16/.suo

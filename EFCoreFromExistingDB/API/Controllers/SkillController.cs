@@ -33,6 +33,12 @@ namespace API.Controllers
             return new OkObjectResult(skills);
         }
 
+        [HttpGet("{id}")]
+        public IActionResult Get(int id)
+        {
+            return new OkObjectResult(_service.GetSkills().FirstOrDefault(s => s.SkillId == id));
+        }
+
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {
