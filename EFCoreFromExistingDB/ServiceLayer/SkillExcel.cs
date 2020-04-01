@@ -52,7 +52,7 @@ namespace ServiceLayer
                 var skill = _skills[r - 1];
                 worksheet.Cells[r, 0].Style.Borders.SetBorders(MultipleBorders.Outside, Color.Black, LineStyle.Thin);
                 worksheet.Cells[r, 1].Style.Borders.SetBorders(MultipleBorders.Outside, Color.Black, LineStyle.Thin);
-                worksheet.Cells[r, 0].Style.Borders.SetBorders(MultipleBorders.Outside, Color.Black, LineStyle.Thin);
+                worksheet.Cells[r, 2].Style.Borders.SetBorders(MultipleBorders.Outside, Color.Black, LineStyle.Thin);
                 worksheet.Cells[r, 0].Value = skill.SkillId;
                 worksheet.Cells[r, 1].Value = skill.Name;
                 worksheet.Cells[r, 2].Value = skill.Description;
