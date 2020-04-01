@@ -4,7 +4,10 @@
       <h2 class="card-header">Skills</h2>
       <label>Toggle Dark Mode</label>
       <b-checkbox v-model="darkMode"></b-checkbox>
-      <table class="table table-striped" :class="[{'table-dark': darkMode}, 'table-bordered']">
+      <table
+        class="table table-striped"
+        :class="[{ 'table-dark': darkMode }, 'table-bordered']"
+      >
         <thead class="thead-light">
           <th>#</th>
           <th>Name</th>
@@ -16,22 +19,34 @@
           <tr
             v-for="(skill, index) in skills"
             :key="skill.skillId"
-            :class="{highlight: getSqlStyle(skill)}"
+            :class="{ highlight: getSqlStyle(skill) }"
           >
-            <td>{{index + 1}}</td>
-            <td>{{skill.name}}</td>
-            <td>{{skill.description}}</td>
+            <td>{{ index + 1 }}</td>
+            <td>{{ skill.name }}</td>
+            <td>{{ skill.description }}</td>
             <td>
               <ul>
-                <li v-for="(skillLevel,index) in skill.skillLevel" :key="skillLevel.skillLevelId" class="alignLeft">Level {{index + 1}}: {{skillLevel.description}}</li>
+                <li
+                  v-for="(skillLevel, index) in skill.skillLevel"
+                  :key="skillLevel.skillLevelId"
+                  class="alignLeft"
+                >
+                  Level {{ index + 1 }}: {{ skillLevel.description }}
+                </li>
               </ul>
             </td>
             <td>
-              <button @click="removeSkill(skill.skillId)" class="btn btn-warning">Remove Skill</button>
+              <button
+                @click="removeSkill(skill.skillId)"
+                class="btn btn-warning"
+              >
+                Remove Skill
+              </button>
             </td>
           </tr>
         </tbody>
       </table>
+      <a href="https://localhost:44304/api/Excel">Click me to get your file!</a>
     </div>
   </div>
 </template>
@@ -60,13 +75,10 @@ export default {
       } else {
         return false;
       }
+    },
+    exportSkills: function() {
+      axios.get("https://localhost:44304/api/Excel");
     }
-  },
-  updated() {
-    axios
-      .get("https://localhost:44304/api/Skill")
-      .then(res => (this.skills = res.data.slice(0, 10)))
-      .catch(err => console.log(err));
   },
   mounted() {
     axios
