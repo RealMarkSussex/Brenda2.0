@@ -27,6 +27,14 @@
           }
         }
       },
+      "GemBox.Spreadsheet/41.3.30.1018": {
+        "runtime": {
+          "lib/net30/GemBox.Spreadsheet.dll": {
+            "assemblyVersion": "41.3.30.1018",
+            "fileVersion": "41.3.30.1018"
+          }
+        }
+      },
       "Microsoft.Bcl.AsyncInterfaces/1.1.0": {
         "runtime": {
           "lib/netstandard2.1/Microsoft.Bcl.AsyncInterfaces.dll": {
@@ -884,6 +892,7 @@
       "EFCoreFromExistingDB/1.0.0": {
         "dependencies": {
           "AutoMapper": "9.0.0",
+          "GemBox.Spreadsheet": "41.3.30.1018",
           "Microsoft.EntityFrameworkCore.SqlServer": "3.1.2"
         },
         "runtime": {
@@ -904,6 +913,13 @@
       "sha512": "sha512-xCqvoxT4HIrNY/xlXG9W+BA/awdrhWvMTKTK/igkGSRbhOhpl3Q8O8Gxlhzjc9JsYqE7sS6AxgyuUUvZ6R5/Bw==",
       "path": "automapper/9.0.0",
       "hashPath": "automapper.9.0.0.nupkg.sha512"
+    },
+    "GemBox.Spreadsheet/41.3.30.1018": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-pTUgKpPJZcR3FcpDf3zRpxe2PbQV8cUnPrBHn3AHMpeSP3g+doAYp/NZ38eqzXbMoJe7RUDVpJ8E5hCFrPLE/g==",
+      "path": "gembox.spreadsheet/41.3.30.1018",
+      "hashPath": "gembox.spreadsheet.41.3.30.1018.nupkg.sha512"
     },
     "Microsoft.Bcl.AsyncInterfaces/1.1.0": {
       "type": "package",
