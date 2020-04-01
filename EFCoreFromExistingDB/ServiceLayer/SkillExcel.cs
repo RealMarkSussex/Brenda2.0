@@ -12,12 +12,12 @@ using ServiceLayer.Models;
 
 namespace ServiceLayer
 {
-    public class Excel
+    public class SkillExcel
     {
         private readonly ExcelFile _workbook;
         private readonly IService _service;
         private readonly IReadOnlyList<ServiceSkill> _skills;
-        public Excel(IService service)
+        public SkillExcel(IService service)
         {
             _service = service;
             SpreadsheetInfo.SetLicense("FREE-LIMITED-KEY");
@@ -42,7 +42,7 @@ namespace ServiceLayer
 
             worksheet.Columns[0].SetWidth(50, LengthUnit.Pixel);
             worksheet.Columns[1].SetWidth(150, LengthUnit.Pixel);
-            worksheet.Columns[1].SetWidth(150, LengthUnit.Pixel);
+            worksheet.Columns[2].SetWidth(150, LengthUnit.Pixel);
 
             worksheet.Cells["A1"].Value = "Id";
             worksheet.Cells["B1"].Value = "Name";

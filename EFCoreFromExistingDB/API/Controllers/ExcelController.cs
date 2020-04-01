@@ -24,7 +24,7 @@ namespace API.Controllers
         [HttpGet]
         public IActionResult Get()
         {
-            var excel = new Excel(_service);
+            var excel = new SkillExcel(_service);
             return File(excel.Create(), SaveOptions.XlsxDefault.ContentType, "Skills.xlsx");
         }
     }
