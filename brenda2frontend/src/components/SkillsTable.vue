@@ -46,7 +46,7 @@
           </tr>
         </tbody>
       </table>
-      <a href="https://localhost:44304/api/Excel">Click me to get your file!</a>
+      <a href="https://localhost:44304/api/Excel">Export skills to excel document!</a>
     </div>
   </div>
 </template>

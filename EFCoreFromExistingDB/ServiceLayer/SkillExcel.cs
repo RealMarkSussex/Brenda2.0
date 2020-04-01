@@ -38,7 +38,7 @@ namespace ServiceLayer
         {
             var worksheet = _workbook.Worksheets.Add("SkillsSheet");
 
-            worksheet.Cells.GetSubrange("A1:C1").Style = GetStyle();
+            worksheet.Cells.GetSubrange("A1:C1").Style = GetStyle(Color.Chocolate);
 
             worksheet.Columns[0].SetWidth(50, LengthUnit.Pixel);
             worksheet.Columns[1].SetWidth(150, LengthUnit.Pixel);
@@ -60,38 +60,44 @@ namespace ServiceLayer
         {
             var worksheet = _workbook.Worksheets.Add("SkillLevelSheet");
 
-            worksheet.Cells.GetSubrange("A1:C1").Style = GetStyle();
-
             worksheet.Columns[0].SetWidth(150, LengthUnit.Pixel);
             worksheet.Columns[1].SetWidth(150, LengthUnit.Pixel);
-            worksheet.Columns[2].SetWidth(150, LengthUnit.Pixel);
 
-            worksheet.Cells["A1"].Value = "Skill Name";
-            worksheet.Cells["B1"].Value = "Level Number";
-            worksheet.Cells["C1"].Value = "Description";
-            var count = 1;
-            for (var r = 1; r <= _skills.Count; r++)
+            var count = 0;
+            var chocolateStyle = GetStyle(Color.Chocolate);
+            var aquaStyle = GetStyle(Color.Aqua);
+            foreach (var skill in _skills)
             {
-                var skill = _skills[r - 1];
+                //Cells[3, 0] is A3
+                worksheet.Cells[count, 0].Style = aquaStyle;
+                worksheet.Cells[count, 0].Value = skill.Name;
+                count++;
 
-                var levelNumber = 1;
+                worksheet.Cells[count, 0].Value = "Level Number";
+                worksheet.Cells[count, 1].Value = "Description";
+                worksheet.Cells[count, 0].Style = chocolateStyle;
+                worksheet.Cells[count, 1].Style = chocolateStyle;
+                count++;
+
+                var levelNumber = 1; //each level is ordered in skillLevel collection
                 foreach (var skillLevel in skill.SkillLevel)
                 {
-                    worksheet.Cells[count, 0].Value = skill.Name;
-                    worksheet.Cells[count, 1].Value = levelNumber;
-                    worksheet.Cells[count, 2].Value = skillLevel.Description;
+                    worksheet.Cells[count, 0].Style.Borders.SetBorders(MultipleBorders.Outside, Color.Black, LineStyle.Thin);
+                    worksheet.Cells[count, 1].Style.Borders.SetBorders(MultipleBorders.Outside, Color.Black, LineStyle.Thin);
+                    worksheet.Cells[count, 0].Value = levelNumber;
+                    worksheet.Cells[count, 1].Value = skillLevel.Description;
                     count++;
                     levelNumber++;
-                } 
+                }
             }
         }
 
-        private static CellStyle GetStyle()
+        private static CellStyle GetStyle(Color color)
         {
             var style = new CellStyle();
             style.HorizontalAlignment = HorizontalAlignmentStyle.Center;
             style.VerticalAlignment = VerticalAlignmentStyle.Center;
-            style.FillPattern.SetSolid(Color.Chocolate);
+            style.FillPattern.SetSolid(color);
             style.Font.Weight = ExcelFont.BoldWeight;
             style.Font.Color = Color.White;
             style.WrapText = true;
