@@ -46,8 +46,11 @@
           </tr>
         </tbody>
       </table>
-      <a href="https://localhost:44304/api/Excel">Export skills to excel document!</a>
     </div>
+    <br />
+    <form action="https://localhost:44304/api/Excel">
+      <b-button type="submit">Export to Excel!</b-button>
+    </form>
   </div>
 </template>
 
@@ -75,9 +78,6 @@ export default {
       } else {
         return false;
       }
-    },
-    exportSkills: function() {
-      axios.get("https://localhost:44304/api/Excel");
     }
   },
   mounted() {
