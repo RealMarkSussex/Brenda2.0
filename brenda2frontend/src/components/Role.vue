@@ -35,7 +35,7 @@ export default {
   },
   data() {
     return {
-      role: undefined,
+      role: {},
       image: ""
     };
   },
